@@ -40,9 +40,9 @@ public class BracesDetectorTest extends LintDetectorTest {
                                 "    }\n"+
                         "}"))
                 .run()
-                .expect("src/test/pkg/TestClass1.java:7: Warning: Always use curly braces for \"if/else/for/while/do\" statements [Formatting]\n" +
+                .expect("src/test/pkg/TestClass1.java:7: Warning: Always use curly braces for \"if/else/for/while/do\" statements [Braces Formatting]\n" +
                         "       if (true && (true)) return; \n" +
-                        "       ~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"+
+                        "       ~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                         "0 errors, 1 warnings\n");
     }
 

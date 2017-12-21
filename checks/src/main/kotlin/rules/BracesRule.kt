@@ -41,13 +41,13 @@ open class BracesRule : BaseRule() {
 //        println(result.get(0) + "\n")
 
         if (StringUtil.isEmpty(result)) {
-            return false
-        }
-
-        if (result.get(0) == '{' || result.get(0) == '?') {
             return true
         }
 
-        return false
+        if (result.get(0) == '{' || result.get(0) == '?') {
+            return false
+        }
+
+        return true
     }
 }

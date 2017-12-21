@@ -13,11 +13,4 @@ public class StringUtils {
         Matcher matcher = pattern.matcher(source);
         return matcher;
     }
-
-    public static boolean containsHanScript(String s) {
-        return s.codePoints().anyMatch(
-                codepoint ->
-                        Character.UnicodeScript.of(codepoint) == Character.UnicodeScript.HAN);
-    }
-
 }

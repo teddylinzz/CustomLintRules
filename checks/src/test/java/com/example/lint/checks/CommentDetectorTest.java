@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class CommentDetectorTest extends LintDetectorTest {
 
-    public void testIfStatement() {
+    public void testComment() {
         lint().files(
                 java("" +
                         "package test.pkg;\n" +
@@ -27,22 +27,22 @@ public class CommentDetectorTest extends LintDetectorTest {
                         "//結束\n " +
                         "}"))
                 .run()
-                .expect("src/test/pkg/TestClass1.java:2: Warning: Don't input chinese word! [Comment style]\n" +
+                .expect("src/test/pkg/TestClass1.java:2: Warning: Do not input abnormal characters. [Comment Formatting]\n" +
                         "//開始\n" +
                         "~~~~\n" +
-                        "src/test/pkg/TestClass1.java:5: Warning: Don't input chinese word! [Comment style]\n" +
+                        "src/test/pkg/TestClass1.java:5: Warning: Do not input abnormal characters. [Comment Formatting]\n" +
                         "    //函式上\n" +
                         "    ~~~~~\n" +
-                        "src/test/pkg/TestClass1.java:7: Warning: Don't input chinese word! [Comment style]\n" +
+                        "src/test/pkg/TestClass1.java:7: Warning: Do not input abnormal characters. [Comment Formatting]\n" +
                         "        //函式內\n" +
                         "        ~~~~~\n" +
-                        "src/test/pkg/TestClass1.java:8: Warning: Don't input chinese word! [Comment style]\n" +
+                        "src/test/pkg/TestClass1.java:8: Warning: Do not input abnormal characters. [Comment Formatting]\n" +
                         "    }//函式後\n" +
                         "     ~~~~~\n" +
-                        "src/test/pkg/TestClass1.java:9: Warning: Don't input chinese word! [Comment style]\n" +
+                        "src/test/pkg/TestClass1.java:9: Warning: Do not input abnormal characters. [Comment Formatting]\n" +
                         "    //函式下\n" +
                         "    ~~~~~\n" +
-                        "src/test/pkg/TestClass1.java:10: Warning: Don't input chinese word! [Comment style]\n" +
+                        "src/test/pkg/TestClass1.java:10: Warning: Do not input abnormal characters. [Comment Formatting]\n" +
                         "//結束\n" +
                         "~~~~\n" +
                         "0 errors, 6 warnings\n");

@@ -23,6 +23,7 @@ import com.android.tools.lint.detector.api.Issue;
 import com.android.tools.lint.detector.api.JavaContext;
 import com.android.tools.lint.detector.api.Scope;
 import com.android.tools.lint.detector.api.Severity;
+import com.example.lint.rules.BracesRule;
 
 import org.jetbrains.uast.UElement;
 import org.jetbrains.uast.UForEachExpression;
@@ -41,7 +42,7 @@ public class BracesDetector extends Detector implements Detector.UastScanner {
     /** Issue describing the problem and pointing to the detector implementation */
     public static final Issue ISSUE = Issue.create(
             // ID: used in @SuppressLint warnings etc
-            "Formatting",
+            "Braces Formatting",
 
             // Title -- shown in the IDE's preference dialog, as category headers in the
             // Analysis results window, etc
@@ -71,7 +72,7 @@ public class BracesDetector extends Detector implements Detector.UastScanner {
         return new UElementHandler() {
             @Override
             public void visitIfExpression(UIfExpression uIfExpression) {
-                if (!new com.example.lint.rules.BracesRule().check(uIfExpression.asRenderString())) {
+                if (new BracesRule().check(uIfExpression.asRenderString())) {
                     context.report(ISSUE, uIfExpression, context.getLocation(uIfExpression),
                             "Always use curly braces for \"if/else/for/while/do\" statements");
                 }
@@ -79,7 +80,7 @@ public class BracesDetector extends Detector implements Detector.UastScanner {
 
             @Override
             public void visitWhileExpression(UWhileExpression uWhileExpression) {
-                if (!new com.example.lint.rules.BracesRule().check(uWhileExpression.asRenderString())) {
+                if (new BracesRule().check(uWhileExpression.asRenderString())) {
                     context.report(ISSUE, uWhileExpression, context.getLocation(uWhileExpression),
                             "Always use curly braces for \"if/else/for/while/do\" statements");
                 }
@@ -87,7 +88,7 @@ public class BracesDetector extends Detector implements Detector.UastScanner {
 
             @Override
             public void visitForEachExpression(UForEachExpression uForEachExpression) {
-                if (!new com.example.lint.rules.BracesRule().check(uForEachExpression.asRenderString())) {
+                if (new BracesRule().check(uForEachExpression.asRenderString())) {
                     context.report(ISSUE, uForEachExpression, context.getLocation(uForEachExpression),
                             "Always use curly braces for \"if/else/for/while/do\" statements");
                 }
