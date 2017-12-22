@@ -13,6 +13,6 @@ open class CommentRule : BaseRule() {
     fun checkChineseCharacters(text: String = ""): Boolean {
         return text.codePoints().anyMatch { codepoint ->
             Character.UnicodeScript.of(codepoint) == Character.UnicodeScript.HAN} ||
-                text.equals("lang", true)
+                text.contains("lang", true)
     }
 }
